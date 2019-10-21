@@ -50,13 +50,12 @@ namespace Splash
             this.lblAlert.AutoSize = true;
             this.lblAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlert.ForeColor = System.Drawing.Color.Crimson;
-            this.lblAlert.Location = new System.Drawing.Point(25, 146);
+            this.lblAlert.Location = new System.Drawing.Point(110, 142);
             this.lblAlert.Name = "lblAlert";
-            this.lblAlert.Size = new System.Drawing.Size(733, 40);
+            this.lblAlert.Size = new System.Drawing.Size(573, 40);
             this.lblAlert.TabIndex = 1;
             this.lblAlert.Text = "Verifique se a imagem com o nome Propaganda está na mesma pasta do App ;)\r\nExtens" +
-    "ões disponíveis: \"tif\", \"tiff\", \"gif\", \"jpeg, jpg,\", \"jif,\", \"jfif\", \"jp2,\", \"jp" +
-    "x,\", \"j2k,\", \"j2c\", \"fpx\", \"pcd\", \"png\"";
+    "ões disponíveis: \"gif\", \"jpeg\", \"jpg,\",\"png\",\"bmp\"";
             this.lblAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnReload
