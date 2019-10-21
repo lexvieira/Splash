@@ -40,23 +40,24 @@ namespace Splash
             // 
             this.picAdvertising.Location = new System.Drawing.Point(0, 0);
             this.picAdvertising.Name = "picAdvertising";
-            this.picAdvertising.Size = new System.Drawing.Size(799, 447);
-            this.picAdvertising.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAdvertising.Size = new System.Drawing.Size(50, 50);
+            this.picAdvertising.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.picAdvertising.TabIndex = 0;
             this.picAdvertising.TabStop = false;
             // 
             // lblAlert
             // 
             this.lblAlert.AutoSize = true;
-            this.lblAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlert.ForeColor = System.Drawing.Color.Crimson;
-            this.lblAlert.Location = new System.Drawing.Point(47, 219);
+            this.lblAlert.Location = new System.Drawing.Point(25, 146);
             this.lblAlert.Name = "lblAlert";
-            this.lblAlert.Size = new System.Drawing.Size(706, 25);
+            this.lblAlert.Size = new System.Drawing.Size(733, 40);
             this.lblAlert.TabIndex = 1;
-            this.lblAlert.Text = "Verifique se a imagem com o nome Propaganda está na mesma pasta do App ;)";
+            this.lblAlert.Text = "Verifique se a imagem com o nome Propaganda está na mesma pasta do App ;)\r\nExtens" +
+    "ões disponíveis: \"tif\", \"tiff\", \"gif\", \"jpeg, jpg,\", \"jif,\", \"jfif\", \"jp2,\", \"jp" +
+    "x,\", \"j2k,\", \"j2c\", \"fpx\", \"pcd\", \"png\"";
             this.lblAlert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblAlert.Visible = false;
             // 
             // btnReload
             // 
@@ -68,7 +69,6 @@ namespace Splash
             this.btnReload.TabIndex = 2;
             this.btnReload.Text = "Recarregar Imagem";
             this.btnReload.UseVisualStyleBackColor = true;
-            this.btnReload.Visible = false;
             this.btnReload.Click += new System.EventHandler(this.BtnReload_Click);
             // 
             // frmSplash
@@ -79,6 +79,8 @@ namespace Splash
             this.Controls.Add(this.btnReload);
             this.Controls.Add(this.lblAlert);
             this.Controls.Add(this.picAdvertising);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmSplash";
             this.Text = "Splash Screen";
             this.ResizeEnd += new System.EventHandler(this.FrmSplash_ResizeEnd);
