@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace Splash
 {
     public partial class frmSplash : Form
     {
-        string appDirectory = AppDomain.CurrentDomain.BaseDirectory + "propaganda";
+        string appDirectory = GetFile();
         public frmSplash()
         {
             InitializeComponent();
@@ -31,25 +32,40 @@ namespace Splash
 
         private void BtnReload_Click(object sender, EventArgs e)
         {
+            appDirectory = GetFile();
+
             verifyAdvertising();
         }
 
         private void verifyAdvertising() {
-
-            string[] imgs = { "png", "gif", "jpeg", "jpg", "bmp"};
-
-            for (int i = 0; i <= (imgs.Length - 1); i++)
+            if (System.IO.File.Exists(appDirectory))
             {
-                if (System.IO.File.Exists(appDirectory + "." + imgs[i]))
-                {
-                    this.picAdvertising.Image = Image.FromFile(appDirectory + "." + imgs[i]);
-                    //this.picAdvertising.ImageLocation = appDirectory + "." + imgs[i];
-                    this.ClientSize = this.picAdvertising.Size;
-                    this.lblAlert.Visible = false;
-                    this.btnReload.Visible = false;
-                    break;
-                }
+                this.picAdvertising.Image = Image.FromFile(appDirectory);
+                this.ClientSize = this.picAdvertising.Size;
+                this.lblAlert.Visible = false;
+                this.btnReload.Visible = false;
             }
         }
+
+        public static String[] GetFilesFrom(String searchFolder, String[] filters, bool isRecursive)
+        {
+            List<String> filesFound = new List<String>();
+            var searchOption = isRecursive ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
+            foreach (var filter in filters)
+            {
+                filesFound.AddRange(Directory.GetFiles(searchFolder, String.Format("*.{0}", filter), searchOption));
+            }
+            return filesFound.ToArray();
+        }
+        private static string GetFile()
+        {
+            String searchFolder = AppDomain.CurrentDomain.BaseDirectory;
+            var filters = new String[] { "jpg", "jpeg", "png", "gif", "bmp" };
+            var files = GetFilesFrom(searchFolder, filters, false);
+            if (files.Length == 0)
+                return null;
+            return files[0];
+        }
+
     }
 }
